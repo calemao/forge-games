@@ -49,9 +49,21 @@ public class LojaArtesanalSeleniumTest {
 
     private void fazerLogin(WebDriverWait wait) {
         driver.get(URL_BASE + "/login");
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[data-testid='input-email']")))
-                .sendKeys("admin@loja.com");
-        driver.findElement(By.cssSelector("[data-testid='input-senha']")).sendKeys("admin123");
+
+        // Espera o campo ficar realmente clicavel (nao so presente no DOM) -
+        // logo apos a navegacao, o Angular pode ainda nao ter terminado de
+        // "ligar" os eventos no campo, e um sendKeys muito cedo perde os
+        // primeiros caracteres digitados, fazendo o login falhar por
+        // credenciais erradas mesmo com o texto certo no codigo do teste.
+        WebElement campoEmail = wait.until(
+                ExpectedConditions.elementToBeClickable(By.cssSelector("[data-testid='input-email']")));
+        campoEmail.clear();
+        campoEmail.sendKeys("admin@loja.com");
+
+        WebElement campoSenha = driver.findElement(By.cssSelector("[data-testid='input-senha']"));
+        campoSenha.clear();
+        campoSenha.sendKeys("admin123");
+
         driver.findElement(By.cssSelector("[data-testid='btn-entrar']")).click();
         wait.until(ExpectedConditions.urlContains("/dashboard"));
     }
