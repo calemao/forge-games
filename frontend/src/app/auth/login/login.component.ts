@@ -33,7 +33,7 @@ import { IconeComponent } from '../../shared/icone/icone.component';
           </button>
         </form>
         <p style="font-size: 13px; color: var(--cor-texto-suave); margin-top: 16px; margin-bottom: 0;">
-          Usuário inicial: admin&#64;loja.com / admin123
+          Usuário inicial: admin&#64;forgegames.com / admin123
         </p>
       </div>
     </div>

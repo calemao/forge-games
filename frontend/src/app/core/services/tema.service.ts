@@ -1,6 +1,6 @@
 import { Injectable, effect, signal } from '@angular/core';
 
-const CHAVE_TEMA = 'loja_artesanal_tema';
+const CHAVE_TEMA = 'forge_games_tema';
 
 /**
  * Controla o tema claro/escuro da aplicacao, persistindo a escolha do

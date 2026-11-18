@@ -190,9 +190,9 @@ específica — nunca um erro genérico de servidor.
 ## 10. Estrutura de Pastas
 
 ```
-loja-produtos-artesanais/
+forge-games/
 ├── backend/
-│   ├── src/main/java/com/lojaartesanal/sistema/
+│   ├── src/main/java/com/forgegames/sistema/
 │   │   ├── entidade/        # Produto, Pedido, Usuario
 │   │   ├── repositorio/     # Spring Data JPA repositories
 │   │   ├── servico/         # regras de negócio
@@ -200,7 +200,7 @@ loja-produtos-artesanais/
 │   │   ├── dto/             # objetos de transferência/validação
 │   │   ├── security/        # JWT, UserDetailsService
 │   │   └── config/          # SecurityConfig, DadosIniciais, TratadorDeExcecoes
-│   └── src/test/java/com/lojaartesanal/sistema/
+│   └── src/test/java/com/forgegames/sistema/
 │       ├── servico/         # testes JUnit (unitários)
 │       ├── api/             # testes REST-assured
 │       └── integracao/      # testes Selenium (E2E)
@@ -222,7 +222,7 @@ loja-produtos-artesanais/
 3. Executar a classe `SistemaApplication.java` (botão Run)
 4. A API estará disponível em `http://localhost:8080`
 5. Usuários criados automaticamente no primeiro start (veja a [seção 14](#14-dados-de-demonstração-seed)):
-   - `admin@loja.com` / `admin123`
+   - `admin@forgegames.com` / `admin123`
    - `lucca@forgegames.com` / `lucca123`
    - `lucas@forgegames.com` / `lucas123`
 
@@ -259,7 +259,7 @@ do banco é criado automaticamente na pasta `backend/data/` na primeira execuç�
 Tabelas: `produto`, `pedido` (com chave estrangeira `produto_id`), `usuario`.
 
 Console web do H2 disponível em `http://localhost:8080/h2-console`
-(JDBC URL: `jdbc:h2:file:./data/lojadb`, usuário `sa`, senha em branco).
+(JDBC URL: `jdbc:h2:file:./data/forgegamesdb`, usuário `sa`, senha em branco).
 
 ## 14. Dados de Demonstração (Seed)
 
@@ -306,7 +306,7 @@ registros em execuções seguintes.
 | JUnit (unitário) | `ProdutoServiceTest` | 1 | Rejeição de cadastro com preço ≤ 0 |
 | JUnit (unitário) | `PedidoServiceTest` | 3 | Cálculo do valor total, rejeição por estoque insuficiente, débito de estoque |
 | REST-assured (API) | `PedidoApiTest` | 3 | Criação de pedido com cálculo correto, rejeição de login inválido, bloqueio de acesso sem token |
-| Selenium (E2E) | `LojaArtesanalSeleniumTest` | 2 | Login + cadastro de produto, login + exclusão de produto |
+| Selenium (E2E) | `ForgeGamesSeleniumTest` | 2 | Login + cadastro de produto, login + exclusão de produto |
 
 **Executar os testes unitários (JUnit):**
 ```
@@ -326,7 +326,7 @@ Esses testes sobem a aplicação automaticamente em uma porta aleatória
 Pré-requisitos: Microsoft Edge instalado; back-end (`mvn spring-boot:run`) e front-end
 (`npm start`) rodando.
 ```
-mvn test -Dtest=LojaArtesanalSeleniumTest
+mvn test -Dtest=ForgeGamesSeleniumTest
 ```
 O Selenium abre o Edge automaticamente (via Selenium Manager, sem configuração manual de
 driver) e executa o fluxo de login, cadastro e exclusão de produto, usando atributos
@@ -358,7 +358,7 @@ O projeto adota uma identidade "gamer", inspirada no universo Xbox/Halo/Gears of
 ## 19. Vídeo Demonstrativo
 
 Link do vídeo (máximo 5 minutos) mostrando o sistema funcionando e a execução de todos os
-testes automatizados: *(adicionar link aqui)*
+testes automatizados: https://youtu.be/OnPWk-2x8Ag (não listado)
 
 ## 20. Possíveis Evoluções Futuras
 

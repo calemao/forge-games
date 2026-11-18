@@ -11,11 +11,11 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.lojaartesanal</groupId>
+    <groupId>com.forgegames</groupId>
     <artifactId>sistema</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>sistema</name>
-    <description>Projeto N2 - Loja de Produtos Artesanais - Testes de Software</description>
+    <description>Projeto N2 - Forge Games - Testes de Software</description>
 
     <properties>
         <java.version>21</java.version>

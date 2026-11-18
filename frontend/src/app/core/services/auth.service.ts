@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
-const CHAVE_TOKEN = 'loja_artesanal_token';
+const CHAVE_TOKEN = 'forge_games_token';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
