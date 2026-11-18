@@ -20,7 +20,24 @@
     <properties>
         <java.version>21</java.version>
         <jjwt.version>0.12.6</jjwt.version>
+        <!-- Fixa o Groovy numa versao compativel com o REST-assured 5.5.0.
+             Sem isso, o Maven resolve uma versao de Groovy mais nova (puxada
+             transitivamente) que quebra chamadas GET sem corpo com um
+             NullPointerException dentro do proprio REST-assured. -->
+        <groovy.version>4.0.24</groovy.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.groovy</groupId>
+                <artifactId>groovy-bom</artifactId>
+                <version>${groovy.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
